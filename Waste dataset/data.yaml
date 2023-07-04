@@ -1,6 +1,7 @@
-train: ../train/images
-val: ../valid/images
-test: ../test/images
+# train: ../train/images
+train: /content/drive/MyDrive/Colab Notebooks/Waste Dataset/train/images
+val: /content/drive/MyDrive/Colab Notebooks/Waste Dataset/valid/images
+test: /content/drive/MyDrive/Colab Notebooks/Waste Dataset/test/images
 
 nc: 4
 names: ['biodegradable', 'metal', 'paper', 'plastic']

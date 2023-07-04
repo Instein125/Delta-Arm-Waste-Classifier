@@ -1,0 +1,6 @@
+tain dataset: 1612
+val dataset: 174
+test dataset: 40
+
+epochs: 237
+train 11 ko images haru use garne train 13 ko vanda
