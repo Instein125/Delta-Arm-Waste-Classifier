@@ -3,8 +3,6 @@ import cv2
 from utils import *
 
 
-
-
 def main():
     st.title("Delta Arm Waste Classifier")
     
@@ -24,6 +22,8 @@ def main():
     
     # Live camera feed
     st.subheader("Live Feed")
+    # use 1 to use iphone camera else 0 to use laptop camera
+
     capture = cv2.VideoCapture(0)
 
     frame_placeholder = st.empty()
