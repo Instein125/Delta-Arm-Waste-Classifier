@@ -3,6 +3,8 @@ import cv2
 from utils import *
 
 
+
+
 def main():
     st.title("Delta Arm Waste Classifier")
     
@@ -35,13 +37,14 @@ def main():
             break
 
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        frame_placeholder.image(frame, channels='RGB')
+        frame_with_polygon = draw_polygon(frame)
+        # frame_placeholder.image(frame, channels='RGB')
+        frame_placeholder.image(frame_with_polygon, channels='RGB')
 
         if capture_button_pressed:
             capture_button_pressed = capture_image(frame)
     
     capture.release()
-    cv2.destroyAllWindows()
 
 
 

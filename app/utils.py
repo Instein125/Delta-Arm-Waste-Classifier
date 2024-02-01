@@ -1,6 +1,46 @@
 import streamlit as st
 import cv2
 import os
+import numpy as np
+
+# def draw_polygon(frame):
+#     # Get frame dimensions
+#     height, width, _ = frame.shape
+    
+#     # Define vertices of the polygon
+#     vertices = np.array([[(width // 4, height // 4), 
+#                           (3 * width // 4, height // 4), 
+#                           (3 * width // 4, 3 * height // 4), 
+#                           (width // 4, 3 * height // 4)]], dtype=np.int32)
+    
+#     # Create a mask of zeros with the same dimensions as the frame
+#     mask = np.zeros_like(frame)
+    
+#     # Fill the polygon defined by vertices with white color
+#     cv2.fillPoly(mask, vertices, (255, 255, 255))
+    
+#     # Bitwise AND operation between the mask and the frame
+#     masked_frame = cv2.bitwise_and(frame, mask)
+    
+#     # Draw the polygon on the frame
+#     cv2.polylines(frame, [vertices], isClosed=True, color=(0, 255, 0), thickness=2)
+    
+#     return frame
+
+def draw_polygon(frame):
+    # Get frame dimensions
+    height, width, _ = frame.shape
+    
+    # Define vertices of the polygon
+    vertices = np.array([[(width // 4, height // 4), 
+                          (3 * width // 4, height // 4), 
+                          (3 * width // 4, 3 * height // 4), 
+                          (width // 4, 3 * height // 4)]], dtype=np.int32)
+    
+    # Draw the polygon on the frame
+    frame_with_polygon = cv2.polylines(frame.copy(), [vertices], isClosed=True, color=(0, 255, 0), thickness=2)
+    
+    return frame_with_polygon
 
 def make_prediction(img_path):
     """Make prediction on the given image and return prediction results"""
