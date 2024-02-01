@@ -20,10 +20,13 @@ def main():
         pass
         # return_to_home()
     
+    # Confidence level input
+    confidence_level = st.number_input("Confidence Level", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+    
     # Live camera feed
     st.subheader("Live Feed")
-    # use 1 to use iphone camera else 0 to use laptop camera
 
+    # use 1 to use iphone camera else 0 to use laptop camera
     capture = cv2.VideoCapture(0)
 
     frame_placeholder = st.empty()
@@ -42,7 +45,7 @@ def main():
         frame_placeholder.image(frame_with_polygon, channels='RGB')
 
         if capture_button_pressed:
-            capture_button_pressed = capture_image(frame)
+            capture_button_pressed = capture_image(frame, confidence_level)
     
     capture.release()
 
