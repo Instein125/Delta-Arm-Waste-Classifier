@@ -28,7 +28,7 @@ def main():
     st.subheader("Live Feed")
 
     # use 1 to use iphone camera else 0 to use laptop camera
-    capture = cv2.VideoCapture(0)
+    capture = cv2.VideoCapture(1)
 
     frame_placeholder = st.empty()
     capture_button_pressed = st.button('Capture Image and Predict')

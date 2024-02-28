@@ -1,0 +1,4 @@
+training in custom data collected:
+train5 : 11 epochs
+train7 : 18 epochs
+train8: 
