@@ -22,8 +22,8 @@ def main():
         send_coordinates([0, 0, -290,], "none")
     
     # Confidence level input
-    # confidence_level = st.number_input("Confidence Level", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
-    confidence_level = 0
+    confidence_level = st.slider("Confidence Level", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+    # confidence_level = 0
     # Live camera feed
     st.subheader("Live Feed")
 
@@ -33,7 +33,6 @@ def main():
     frame_placeholder = st.empty()
     capture_button_pressed = st.button('Capture Image and Predict')
     # pick_object = st.button('Pick and sort')
-    detected_colors = ['none']
 
     while capture.isOpened():
         ret, frame = capture.read()
@@ -48,8 +47,9 @@ def main():
         frame_placeholder.image(frame_with_polygon, channels='RGB')
 
         if capture_button_pressed:
-            capture_button_pressed, detected_colors = capture_image(frame, confidence_level)
-            send_coordinates([0, 0, -380,] ,detected_colors[0])
+            capture_button_pressed, result = capture_image(frame, confidence_level)
+            print(result)
+            send_coordinates([0, 0, -380,] ,result)
             
     
     capture.release()
