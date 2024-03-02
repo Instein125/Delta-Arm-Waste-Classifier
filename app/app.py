@@ -15,7 +15,6 @@ def main():
     z_coord = st.sidebar.number_input("Z Coordinate", value=-290)
     
     if st.sidebar.button("Send Coordinates"):
-        # print([x_coord, y_coord, z_coord, 'None'])
         send_coordinates([x_coord, y_coord, z_coord], "none")
 
     if st.sidebar.button("Return to Home Position"):
@@ -23,7 +22,6 @@ def main():
     
     # Confidence level input
     confidence_level = st.slider("Confidence Level", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
-    # confidence_level = 0
     # Live camera feed
     st.subheader("Live Feed")
 
@@ -32,7 +30,6 @@ def main():
 
     frame_placeholder = st.empty()
     capture_button_pressed = st.button('Capture Image and Predict')
-    # pick_object = st.button('Pick and sort')
 
     while capture.isOpened():
         ret, frame = capture.read()
@@ -43,7 +40,6 @@ def main():
 
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         frame_with_polygon = draw_polygon(frame)
-        # frame_placeholder.image(frame, channels='RGB')
         frame_placeholder.image(frame_with_polygon, channels='RGB')
 
         if capture_button_pressed:
