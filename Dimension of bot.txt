@@ -1,0 +1,8 @@
+Dimension of bot:
+
+Bicep:- 170 -> 90
+Forearm:- 310
+Radius Of base:- 75
+Radius Endeffector:- 40
+
+Note: Unit is in Millimeter
